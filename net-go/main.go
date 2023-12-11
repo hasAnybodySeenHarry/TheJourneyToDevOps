@@ -20,13 +20,13 @@ func renderTemplate(w http.ResponseWriter) {
 	tmplFile := "template.html"
 	tmpl, err := template.ParseFiles(tmplFile)
 	if err != nil {
-		http.Error(w, err, http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	err = tmpl.Execute(w, nil)
 	if err != nil {
-		http.Error(w, err, http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 }
