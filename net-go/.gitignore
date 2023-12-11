@@ -8,6 +8,9 @@
 # You should ignore the go.sum file when vendoring dependencies
 # but here I decided to include it to directly build a binary.
 
+# Docker regular build files
+Dockerfile.old
+
 # Ignore the go cache directory
 /.cache/
 
