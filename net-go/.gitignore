@@ -5,8 +5,8 @@
 /bin/
 /pkg/
 
-# Ignore the go.sum file when vendoring dependencies
-go.sum
+# You should ignore the go.sum file when vendoring dependencies
+# but here I decided to include it to directly build a binary.
 
 # Ignore the go cache directory
 /.cache/
