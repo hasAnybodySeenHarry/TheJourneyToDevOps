@@ -23,7 +23,7 @@ FROM alpine:latest
 WORKDIR /app
 
 # Copy only the built executable from the build container
-COPY --from=build /app/main .
+COPY --from=build /app/main /app/template.html .
 
 # Expose the port that the application will run on
 EXPOSE 3000
