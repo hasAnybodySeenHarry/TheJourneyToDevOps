@@ -1,33 +1,32 @@
-# Build stage
+# build stage
 FROM golang:1.17-alpine AS build
 
-# Set the working directory inside the build container
+# set working directory inside build container
 WORKDIR /app
 
-# Copy the Go dependency files into the build container
+# copy dependency files into build container
 COPY go.mod go.sum ./
 
-# Download and install Go dependencies
+# download and install dependencies
 RUN go mod download
 
-# Copy the rest of the application code
+# copy the rest of the application code
 COPY . .
 
-# Build the Go application
+# build the app
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
-# Final stage
+# final stage
 FROM alpine:latest
 
-# Set the working directory inside the final container
+# set working directory inside final container
 WORKDIR /app
 
-# Copy only the built executable from the build container
+# copy only the executable from the build container
 COPY --from=build /app/main /app/template.html .
 
-# Expose the port that the application will run on
+# expose the port
 EXPOSE 3000
 
-# Command to run the application
+# command to run the app
 CMD ["./main"]
-
