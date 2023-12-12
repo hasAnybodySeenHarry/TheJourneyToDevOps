@@ -1,29 +1,20 @@
-# Build stage
-FROM node:16-alpine AS build
+# Use the official Node.js Alpine image
+FROM node:14-alpine
 
+# Set the working directory in the container
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm install --only prod
+RUN npm install
 
-# Copy all application files
-COPY . .
-
-# Production stage
-FROM node:16-alpine
-
-WORKDIR /usr/src/app
-
-# Copy only necessary files from the build stage
-COPY --from=build /usr/src/app/index.js /usr/src/app/index.html ./
-COPY --from=build /usr/src/app/node_modules ./node_modules
+# Copy only necessary application files (excluding node_modules)
+COPY index.js index.html ./
 
 # Expose the application port
 EXPOSE 3000
 
 # Command to run the application
 CMD ["node", "index.js"]
-
