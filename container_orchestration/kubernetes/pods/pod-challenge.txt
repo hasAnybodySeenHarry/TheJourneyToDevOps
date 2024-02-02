@@ -1,0 +1,1 @@
+We are referring to a Pod named redis-db, labeled as app=my_redis, in the default namespace. This Pod includes a single container named redis that uses the redis:latest image and exposes port 6379 using the TCP protocol. This definition is according to the API version v1.

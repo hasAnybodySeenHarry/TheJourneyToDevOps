@@ -1,0 +1,43 @@
+# Compiled binary
+/main
+
+# Go binaries and packages
+/bin/
+/pkg/
+
+# You should ignore the go.sum file when vendoring dependencies
+# but here I decided to include it to directly build a binary.
+
+# Docker regular build files
+Dockerfile.old
+
+# Ignore the go cache directory
+/.cache/
+
+# Ignore the local directory used by some editors and version control systems
+/.idea/
+.vscode/
+
+# Ignore any generated files (user-specific)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.prof
+
+# Ignore any logs or crash dumps
+*.log
+*.log.*
+*.crash
+
+# Ignore user-specific files
+*.sublime-workspace
+*.sublime-project
+*.tmproj
+*.esproj
+*.iml
+*.DS_Store
+Thumbs.db
