@@ -1,6 +1,6 @@
 resource "aws_security_group" "rds_sg" {
   name        = "rds-sg"
-  description = "Security group to control RDS MySQL access in the specified VPC."
+  description = "Security group to control RDS MySQL access"
   vpc_id      = aws_vpc.vpc.id
 }
 
